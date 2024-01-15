@@ -14,5 +14,255 @@ html {
 }
 
 * {
-  box-sizing: content-box;
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  font-family: Courier, monospace;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background-color: #fff;
+}
+
+#header {
+  flex-basis: 20%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  color: var(--menu-text-color);
+  background-color: var(--menu-background);
+  font-size: 1rem;
+}
+
+.header-content {
+  margin-top: 2rem;
+  padding: 1rem 0 0 2rem;
+  width: 100%;
+}
+
+.header-name {
+  margin-bottom: 5rem;
+}
+
+.menu__list {
+  position: relative;
+  line-height: 1.5em;
+  margin-top: 0.5rem;
+  max-width: 150px;
+  transition: all 0.4s ease;
+}
+
+.menu__list-button {
+  background: initial;
+  border: none;
+  text-align: left;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.menu__list-link,
+.menu__list-button {
+  margin-bottom: 0.3rem;
+  text-decoration: none;
+  display: inline-block;
+  color: #fff;
+  width: 100%;
+}
+
+.menu__list:hover {
+  padding: 0 0.3rem;
+  padding-left: 0.5rem;
+  border: 1px solid #ffffff;
+  border-radius: 0.5rem;
+  background-color: #62a645;
+}
+.menu__list::after {
+  border-top: 1px solid #fff;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 80%;
+  transition: all 0.4s ease;
+}
+
+.menu__list:hover::after {
+  right: 0;
+  bottom: 0;
+  border: 1px solid #fff;
+  border-radius: 0.5rem;
+  z-index: -1;
+}
+
+#content {
+  display: flex;
+  flex-basis: 80%;
+  height: 100vh;
+  flex-direction: column;
+}
+
+.content-date {
+  text-align: center;
+  color: var(--header-text-color);
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+
+.content-text {
+  margin: 0 2rem;
+  margin-top: 20%;
+}
+
+.content-text__section {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--content-text-color);
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  padding-bottom: 2rem;
+  text-align: justify;
+  line-height: 1.2em;
+}
+
+.modal {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  z-index: -2;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: #00000094;
+  transition: all 0.4s ease-in-out;
+}
+
+.modal-content {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  gap: 4rem;
+  border-radius: 0.8rem;
+  box-shadow: 8px 9px 0 0 darkgray;
+  padding: 2rem;
+  background-color: #ffffff;
+}
+
+.modal-content__img > img {
+  border-radius: 50%;
+  max-width: 300px;
+  object-position: center;
+  object-fit: cover;
+}
+
+.modal-content__info {
+  width: 100%;
+  height: 100%;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.modal-content__info-title {
+  font-size: 2rem;
+  font-weight: 500;
+  margin-top: 0;
+  margin-bottom: 3rem;
+}
+
+.modal-content__info-text {
+  margin-top: 2rem;
+  font-weight: 400;
+}
+
+.modal-content-close {
+  position: absolute;
+  top: 10px;
+  right: 1rem;
+  font-size: 4vw;
+  cursor: pointer;
+}
+.modal-content-close:hover {
+  color: red;
+}
+
+#footer {
+  margin-top: auto;
+  text-align: center;
+  background-color: var(--footer-background);
+}
+
+.footer-text {
+  padding: 0.5rem;
+  font-size: 0.7rem;
+  color: var(--footer-text-color);
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+  #header {
+    width: 100%;
+    height: auto;
+    flex-basis: auto;
+  }
+
+  .header-name {
+    margin-bottom: 1rem;
+  }
+
+  .header-content {
+    margin-top: 0;
+  }
+  .menu {
+    display: flex;
+    justify-content: flex-start;
+    gap: 2rem;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+
+  #content {
+    height: calc(100vh);
+    flex-basis: initial;
+  }
+  .content-date{
+    margin-bottom: 1rem;
+  }
+  .modal-content {
+    padding: 1rem;
+    gap: 2rem;
+    width: 80%;
+    margin-top: 15rem;
+  }
+
+  .modal-content__info-title {
+    font-size: 5vw;
+  }
+
+  .modal-content__info-list > li {
+    font-size: 3vw;
+  }
+
+  .modal-content__info-text{
+    font-size: 4vw;
+  }
+
+  .modal-content-close {
+    font-size: 7vw;
+  }
+
+  .modal-content__img > img {
+    width: 20vw;
+  }
 }
